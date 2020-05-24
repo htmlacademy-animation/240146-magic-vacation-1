@@ -247,12 +247,11 @@
       content: "";
       position: absolute;
       bottom: 0;
-      width: 0;
+      width: 100%;
       height: 2px;
       background-color: $c-light;
       display: block;
       left: 0;
-      transition: width, $transition-short;
 
       @media (max-width: $tablet) and (orientation: portrait) {
         left: 0;
@@ -267,12 +266,6 @@
       }
     }
 
-    &.active {
-      &::after {
-        width: 100%;
-      }
-    }
-
     &:hover,
     &:focus {
       color: $c-purple;
@@ -283,6 +276,29 @@
         opacity: 1;
         background-color: $c-purple;
       }
+    }
+  }
+}
+
+.js-menu-link {
+  &::after {
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: background-color $transition-short, transform $transition-short;
+  }
+
+  &.active {
+    &::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    &::after {
+      transform-origin: left;
+      transform: scaleX(1);
     }
   }
 }
