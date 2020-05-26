@@ -9,19 +9,19 @@
 
 @keyframes translateY {
   from {
-    transform: translateY(15px);
+    transform: translateY(1.5rem);
   }
   to {
-    transform: translateY(0px);
+    transform: translateY(0);
   }
 }
 
 @keyframes translateX {
   from {
-    transform: translateX(30px);
+    transform: translateX(5rem);
   }
   to {
-    transform: translateY(0px);
+    transform: translateY(0);
   }
 }
 
