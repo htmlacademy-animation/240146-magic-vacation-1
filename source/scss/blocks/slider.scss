@@ -36,18 +36,9 @@
     padding: 5rem 2rem 0 5rem;
   }
 
-  &:nth-child(odd) {
-    .slider__item-text {
-      animation-name: fadeIn, translateX;
-      animation-duration: 1s, 500ms;
-    }
-  }
-
   &:nth-child(even) {
     .slider__item-text {
       align-self: flex-end;
-      animation-name: fadeIn, translateX;
-      animation-duration: 2s, 1s;
 
       @media (max-width: $mobile) and (orientation: landscape) {
         align-self: flex-start;
@@ -284,4 +275,16 @@
       background-color: $c-light;
     }
   }
+}
+
+.swiper-slide-active {
+  .slider__item-text {
+    animation-name: fadeIn, translateX;
+    animation-duration: 0.75s, 0.5s;
+  }
+}
+
+.swiper-slide-next {
+  animation-name: fadeIn, translateX;
+  animation-duration: 1.5s, 1s;
 }
