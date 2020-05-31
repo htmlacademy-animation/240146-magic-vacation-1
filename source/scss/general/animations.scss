@@ -1,0 +1,35 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes translateY {
+  from {
+    transform: translateY(1.5rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes translateX {
+  from {
+    transform: translateX(5rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes textFieldSlide {
+  from {
+    padding-left: 92rem;
+  }
+  to {
+    padding-left: 0rem;
+  }
+}

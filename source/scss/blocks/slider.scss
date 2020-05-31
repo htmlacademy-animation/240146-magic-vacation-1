@@ -276,3 +276,15 @@
     }
   }
 }
+
+.swiper-slide-active {
+  .slider__item-text {
+    animation-name: fadeIn, translateX;
+    animation-duration: 0.75s, 0.5s;
+  }
+}
+
+.swiper-slide-next {
+  animation-name: fadeIn, translateX;
+  animation-duration: 1.5s, 1s;
+}

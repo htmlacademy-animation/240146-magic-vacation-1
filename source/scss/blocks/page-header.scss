@@ -241,6 +241,7 @@
     display: block;
     color: inherit;
     padding: 0 0.5em 0.5em;
+    transition: color, $transition-short;
 
     &::after {
       content: "";
@@ -249,7 +250,7 @@
       width: 100%;
       height: 2px;
       background-color: $c-light;
-      display: none;
+      display: block;
       left: 0;
 
       @media (max-width: $tablet) and (orientation: portrait) {
@@ -265,12 +266,6 @@
       }
     }
 
-    &.active {
-      &::after {
-        display: block;
-      }
-    }
-
     &:hover,
     &:focus {
       color: $c-purple;
@@ -280,6 +275,29 @@
         opacity: 1;
         background-color: $c-purple;
       }
+    }
+  }
+}
+
+.js-menu-link {
+  &::after {
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: background-color $transition-short, transform $transition-short;
+  }
+
+  &.active {
+    &::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    &::after {
+      transform-origin: left;
+      transform: scaleX(1);
     }
   }
 }
