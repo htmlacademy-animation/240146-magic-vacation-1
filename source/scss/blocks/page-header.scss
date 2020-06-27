@@ -35,6 +35,11 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  opacity: 0;
+  transform: translateX(-1em);
+  transition-property: transform, opacity;
+  transition-timing-function: $transition-custom-mode;
+  transition-duration: $transition-longer;
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -130,6 +135,10 @@
 .page-header__nav {
   display: flex;
   align-items: center;
+  opacity: 0;
+  transition-property: opacity;
+  transition-timing-function: $transition-custom-mode;
+  transition-duration: $transition-longer;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;
@@ -304,6 +313,10 @@
 
 .page-header__social {
   margin-left: 4.8rem;
+  transform: scale(0);
+  transition-property: transform;
+  transition-timing-function: $transition-custom-mode;
+  transition-duration: $transition-short;
 
   @media (min-width: $stop-scaling) {
     margin-left: 48px;
@@ -317,5 +330,20 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     margin-left: 0;
     width: 100%;
+  }
+}
+
+.page-loaded {
+  .page-header__logo {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .page-header__nav {
+    opacity: 1;
+  }
+
+  .page-header__social {
+    transform: scale(1);
   }
 }
