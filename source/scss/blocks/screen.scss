@@ -46,6 +46,10 @@
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
+  transform: translateY(100%);
+  transition-property: transform;
+  transition-timing-function: $transition-custom-mode;
+  transition-duration: $transition-short;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;
@@ -290,7 +294,8 @@
 
 .screen--story {
   background-color: $c-dark;
-  background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"), url("../img/slide3.jpg"), url("../img/slide4.jpg");
+  background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"),
+    url("../img/slide3.jpg"), url("../img/slide4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -353,4 +358,10 @@
 
 .screen--rules {
   background-color: $c-dark;
+}
+
+.page-loaded {
+  .screen__footer {
+    transform: translateY(0);
+  }
 }
