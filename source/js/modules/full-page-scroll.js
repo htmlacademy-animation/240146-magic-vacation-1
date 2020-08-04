@@ -6,6 +6,8 @@ export default class FullPageScroll {
 
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
+    this.screenOverlay = document.querySelector(`.screen-overlay`);
+    this.prizesScreen = document.querySelector(`.screen--prizes`);
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
@@ -46,6 +48,15 @@ export default class FullPageScroll {
     });
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
     this.screenElements[this.activeScreen].classList.add(`active`);
+
+    const prizesScreenActive = this.prizesScreen.classList.contains(`active`);
+    const screenOverlayActive = this.screenOverlay.classList.contains(`active`);
+
+    if (prizesScreenActive) {
+      this.screenOverlay.classList.add(`active`);
+    } else if (screenOverlayActive) {
+      this.screenOverlay.classList.remove(`active`);
+    }
   }
 
   changeActiveMenuItem() {
