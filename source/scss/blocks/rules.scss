@@ -211,3 +211,18 @@
     right: 1.5rem;
   }
 }
+
+.text__word {
+  display: inline-block;
+  margin: 0 5px;
+  overflow: hidden;
+}
+
+.text__word > span {
+  transform: translate3d(0, 1em, 0);
+  display: inline-block;
+}
+
+.rules__title.active .text__word > span {
+  transform: translate3d(0, 0, 0);
+}

@@ -1,5 +1,7 @@
 import throttle from 'lodash/throttle';
 
+import AccentTypographyBuild from './accentTypography';
+
 export default class FullPageScroll {
   constructor() {
     this.THROTTLE_TIMEOUT = 2000;
@@ -8,10 +10,16 @@ export default class FullPageScroll {
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
     this.screenOverlay = document.querySelector(`.screen-overlay`);
     this.prizesScreen = document.querySelector(`.screen--prizes`);
+    this.rulesScreen = document.querySelector(`.screen--rules`);
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
+
+    this.rulesTitleAnimation = new AccentTypographyBuild(`.rules__title`,
+        500,
+        `active`,
+        `transform`);
   }
 
   init() {
@@ -51,11 +59,20 @@ export default class FullPageScroll {
 
     const prizesScreenActive = this.prizesScreen.classList.contains(`active`);
     const screenOverlayActive = this.screenOverlay.classList.contains(`active`);
+    const screenRulesActive = this.rulesScreen.classList.contains(`active`);
 
     if (prizesScreenActive) {
       this.screenOverlay.classList.add(`active`);
     } else if (screenOverlayActive) {
       this.screenOverlay.classList.remove(`active`);
+    }
+
+    if (screenRulesActive) {
+      setTimeout(() => {
+        this.rulesTitleAnimation.runAnimation();
+      }, 250);
+    } else {
+      this.rulesTitleAnimation.destroyAnimation();
     }
   }
 
