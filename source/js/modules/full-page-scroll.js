@@ -11,6 +11,7 @@ export default class FullPageScroll {
     this.screenOverlay = document.querySelector(`.screen-overlay`);
     this.prizesScreen = document.querySelector(`.screen--prizes`);
     this.rulesScreen = document.querySelector(`.screen--rules`);
+    this.rulesButton = document.querySelector(`.rules__link`);
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
@@ -73,6 +74,9 @@ export default class FullPageScroll {
       }, 250);
     } else {
       this.rulesTitleAnimation.destroyAnimation();
+      if (this.rulesButton.classList.contains(`active`)) {
+        this.rulesButton.classList.remove(`active`);
+      }
     }
   }
 

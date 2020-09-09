@@ -39,7 +39,7 @@
   transform: translateX(-1em);
   transition-property: transform, opacity;
   transition-timing-function: $transition-custom-mode;
-  transition-duration: $transition-longer;
+  transition-duration: $transition-long;
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -138,7 +138,7 @@
   opacity: 0;
   transition-property: opacity;
   transition-timing-function: $transition-custom-mode;
-  transition-duration: $transition-longer;
+  transition-duration: $transition-long;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;

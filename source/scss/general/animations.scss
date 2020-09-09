@@ -25,11 +25,41 @@
   }
 }
 
-@keyframes textFieldSlide {
+@keyframes formFieldSlide {
   from {
     padding-left: 92rem;
   }
   to {
     padding-left: 0rem;
+  }
+}
+
+@keyframes rulesItemPop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transofmr: scale(1);
+  }
+}
+
+@keyframes rulesButtonSlide {
+  0% {
+    width: 0;
+    color: transparent;
+    opacity: 0;
+  }
+
+  70% {
+    color: transparent;
+  }
+
+  100% {
+    width: 18rem;
+    color: $c-dark;
+    opacity: 1;
   }
 }
