@@ -9,6 +9,9 @@ export default class AccentTypographyBuild {
 
     this._element = document.querySelector(this._elementSelector);
     this._timeOffset = 0;
+    this._offsetStep = 20;
+    this._previousLargestOffset = this._timeOffset;
+    this._i = 1;
 
     this.prePareText();
   }
@@ -17,7 +20,19 @@ export default class AccentTypographyBuild {
     const span = document.createElement(`span`);
     span.textContent = letter;
     span.style.transition = `${this._property} ${this._timer}ms ease ${this._timeOffset}ms`;
-    this._timeOffset += 20;
+
+    if (this._i === 0) {
+      this._timeOffset = this._previousLargestOffset + this._offsetStep;
+      this._i++;
+    } else if (this._i === 1) {
+      this._timeOffset += this._offsetStep * 2;
+      this._previousLargestOffset = this._timeOffset;
+      this._i++;
+    } else if (this._i === 2) {
+      this._timeOffset = this._previousLargestOffset - this._offsetStep;
+      this._i = 0;
+    }
+
     return span;
   }
 
