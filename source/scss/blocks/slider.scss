@@ -281,10 +281,14 @@
   .slider__item-text {
     animation-name: fadeIn, translateX;
     animation-duration: 0.75s, 0.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
   }
 }
 
 .swiper-slide-next {
   animation-name: fadeIn, translateX;
   animation-duration: 1.5s, 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 }
