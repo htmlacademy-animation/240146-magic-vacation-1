@@ -170,3 +170,11 @@
 .intro__title.active .text__word > span {
   transform: translate3d(0, 0, 0);
 }
+
+.intro__date.active .text__word > span {
+  transform: translate3d(0, 0, 0);
+}
+
+.overflow-visible {
+  overflow: visible;
+}
