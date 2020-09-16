@@ -25,7 +25,7 @@
 
 .intro__title {
   margin: 0;
-  max-width: 99rem;
+  max-width: 101rem;
   text-transform: uppercase;
   font-family: $font-alt;
   font-weight: 400;
@@ -34,7 +34,7 @@
   letter-spacing: -0.04em;
 
   @media (min-width: $stop-scaling) {
-    max-width: 990px;
+    max-width: 1007px;
     font-size: 120px;
   }
 
@@ -165,4 +165,16 @@
     margin: 0 0 0 -5px;
     font-size: 48px;
   }
+}
+
+.intro__title.active .text__word > span {
+  transform: translate3d(0, 0, 0);
+}
+
+.intro__date.active .text__word > span {
+  transform: translate3d(0, 0, 0);
+}
+
+.overflow-visible {
+  overflow: visible;
 }
