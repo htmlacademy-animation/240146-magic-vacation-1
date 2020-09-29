@@ -69,10 +69,6 @@
     transform: translateX(-7rem) rotate(-180deg);
     opacity: 0;
   }
-  70% {
-    transform: translateX(1rem) rotate(0deg);
-    opacity: 0.5;
-  }
   100% {
     transform: translateX(0rem);
     opacity: 1;
@@ -83,10 +79,6 @@
   0% {
     transform: translateX(7rem) rotate(180deg);
     opacity: 0;
-  }
-  70% {
-    transform: translateX(-1rem) rotate(0deg);
-    opacity: 0.5;
   }
   100% {
     transform: translateX(0rem);
