@@ -1,5 +1,5 @@
 export default class AccentTypographyBuild {
-  constructor(elementSelector, timer, classForActivate, property) {
+  constructor(elementSelector, timer, delay = 0, classForActivate, property) {
     this._TIME_SPACE = 100;
 
     this._elementSelector = elementSelector;
@@ -8,7 +8,7 @@ export default class AccentTypographyBuild {
     this._property = property;
 
     this._element = document.querySelector(this._elementSelector);
-    this._timeOffset = 0;
+    this._timeOffset = 0 + delay;
     this._offsetStep = 20;
     this._previousLargestOffset = this._timeOffset;
     this._i = 1;

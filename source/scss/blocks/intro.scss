@@ -25,16 +25,16 @@
 
 .intro__title {
   margin: 0;
-  max-width: 101rem;
+  max-width: 99rem;
   text-transform: uppercase;
   font-family: $font-alt;
   font-weight: 400;
   font-size: 12rem;
-  line-height: 0.906;
+  line-height: 1;
   letter-spacing: -0.04em;
 
   @media (min-width: $stop-scaling) {
-    max-width: 1007px;
+    max-width: 990px;
     font-size: 120px;
   }
 
@@ -93,10 +93,12 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.27;
+  opacity: 0;
   animation-name: fadeIn, translateY;
-  animation-duration: 1s;
+  animation-duration: 1s, 500ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
+  animation-delay: 700ms;
 
   @media (min-width: $stop-scaling) {
     width: 509px;
@@ -145,6 +147,12 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.2;
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-delay: 1500ms;
 
   @media (min-width: $stop-scaling) {
     margin: 0 0 16px;
@@ -168,11 +176,11 @@
 }
 
 .intro__title.active .text__word > span {
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0.1em, 0);
 }
 
 .intro__date.active .text__word > span {
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0.1em, 0);
 }
 
 .overflow-visible {
