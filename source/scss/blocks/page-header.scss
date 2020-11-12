@@ -350,4 +350,10 @@
   .page-header__social {
     transform: scale(1);
   }
+
+  .js-menu-link {
+    &::after {
+      transition-delay: 0ms;
+    }
+  }
 }
