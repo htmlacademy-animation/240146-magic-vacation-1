@@ -36,10 +36,11 @@
   width: 10rem;
   color: $c-light;
   opacity: 0;
-  transform: translateX(-1em);
+  transform: translateX(-1.5em);
   transition-property: transform, opacity;
+  transition-duration: 250ms, 100ms;
   transition-timing-function: $transition-custom-mode;
-  transition-duration: $transition-long;
+  transition-delay: 250ms;
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -138,7 +139,8 @@
   opacity: 0;
   transition-property: opacity;
   transition-timing-function: $transition-custom-mode;
-  transition-duration: $transition-long;
+  transition-duration: 250ms;
+  transition-delay: 250ms;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;
@@ -293,6 +295,7 @@
     transform: scaleX(0);
     transform-origin: right;
     transition: background-color $transition-short, transform $transition-short;
+    transition-delay: 500ms;
   }
 
   &.active {
@@ -317,6 +320,7 @@
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.6, -0.25, 0.34, 1.51);
   transition-duration: $transition-short;
+  transition-delay: 500ms;
 
   @media (min-width: $stop-scaling) {
     margin-left: 48px;
@@ -345,5 +349,11 @@
 
   .page-header__social {
     transform: scale(1);
+  }
+
+  .js-menu-link {
+    &::after {
+      transition-delay: 0ms;
+    }
   }
 }
