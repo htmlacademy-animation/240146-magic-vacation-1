@@ -5,11 +5,13 @@ export default () => {
 
   const introTitleAnimation = new AccentTypographyBuild(`.intro__title`,
       500,
+      600,
       `active`,
       `transform`);
 
   const introDateAnimation = new AccentTypographyBuild(`.intro__date`,
       500,
+      800,
       `active`,
       `transform`);
 
