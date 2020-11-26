@@ -268,3 +268,14 @@
     }
   }
 }
+
+.result__victory {
+  opacity: 0;
+  transform: scale(1.2);
+  transition: transform 0.8s ease, opacity 0.8s ease;
+
+  .screen--show & {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
