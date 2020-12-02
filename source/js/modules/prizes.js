@@ -18,8 +18,6 @@ export default () => {
     if (prizesScreenActive && !animationShown) {
       primaryAwardImg.src = `${primaryAwardSvgPath}?${Math.random()}`;
 
-      // 0.3s + 0.05 + 0.2s + 0.3s + 1s = 2000ms
-
       setTimeout(() => {
         secondaryAwardImg.src = `${secondaryAwardSvgPath}?${Math.random()}`;
       }, 3900);
