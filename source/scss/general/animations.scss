@@ -85,3 +85,21 @@
     opacity: 1;
   }
 }
+
+@keyframes resultLoseTitleFalling {
+  0% {
+    transform: translate3d(-2px, -4em, 0);
+  }
+  70% {
+    transform: translate3d(-2px, 0, 0);
+  }
+  80% {
+    transform: translate3d(-2px, -0.5em, 0);
+  }
+  85% {
+    transform: translate3d(-2px, -0.7em, 0);
+  }
+  100% {
+    transform: translate3d(-2px, 0, 0);
+  }
+}
