@@ -12,6 +12,7 @@ import page from "./modules/page";
 import intro from "./modules/intro";
 import rules from "./modules/rules";
 import prizes from "./modules/prizes";
+import game from "./modules/game";
 
 // init modules
 mobileHeight();
@@ -26,6 +27,7 @@ page();
 intro();
 rules();
 prizes();
+game();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
