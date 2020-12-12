@@ -10461,32 +10461,29 @@ const MAX_SESSION_TIME_MS = 5 * 60 * 1000; // 5 MINUTES
   const minutesSpan = document.querySelector(`.game__counter-minutes`);
   const secondsSpan = document.querySelector(`.game__counter-seconds`);
 
+  let requestId = null;
+
   const formatTime = (time) => {
     return time < 10 ? `0${time}` : time;
   };
 
   const animate = (draw, duration) => {
-    let start = Date.now();
-    let then = Date.now();
-    let step = 1000 / 60;
+    const start = Date.now();
 
-    return function startAnimation() {
+    requestAnimationFrame(function startAnimation() {
       const now = Date.now();
       let elapsed = now - start;
-      let stepElapsed = now - then;
 
       if (elapsed > duration) {
         elapsed = duration;
       }
 
-      if (stepElapsed > step) {
-        then = now - (stepElapsed % step);
-        draw(duration - elapsed);
-      }
+      draw(duration - elapsed);
+
       if (elapsed < duration) {
-        requestAnimationFrame(startAnimation);
+        requestId = requestAnimationFrame(startAnimation);
       }
-    };
+    });
   };
 
   const draw = (progress) => {
@@ -10498,12 +10495,21 @@ const MAX_SESSION_TIME_MS = 5 * 60 * 1000; // 5 MINUTES
     secondsSpan.textContent = seconds;
   };
 
+  const startAnimation = (duration = MAX_SESSION_TIME_MS) => {
+    animate(draw, duration);
+  };
+  const resetAnimation = () => {
+    cancelAnimationFrame(requestId);
+  };
+
   document.body.addEventListener(`screenChanged`, () => {
     const isGameScreenActive = gameScreen.classList.contains(`active`);
 
     if (isGameScreenActive) {
-      const timerAnimation = animate(draw, MAX_SESSION_TIME_MS);
-      requestAnimationFrame(timerAnimation);
+      startAnimation();
+    } else {
+      resetAnimation(requestId);
+      requestId = null;
     }
   });
 });
