@@ -11,8 +11,7 @@ import FullPageScroll from "./modules/full-page-scroll";
 import page from "./modules/page";
 import intro from "./modules/intro";
 import rules from "./modules/rules";
-import prizes from "./modules/prizes";
-import game from "./modules/game";
+import screenChangeController from "./modules/screenChangeController";
 
 // init modules
 mobileHeight();
@@ -26,8 +25,7 @@ social();
 page();
 intro();
 rules();
-prizes();
-game();
+screenChangeController();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
