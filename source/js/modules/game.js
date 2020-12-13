@@ -39,20 +39,13 @@ export default () => {
     secondsSpan.textContent = seconds;
   };
 
-  const startAnimation = (duration = MAX_SESSION_TIME_MS) => {
-    animate(draw, duration);
-  };
-  const resetAnimation = () => {
-    cancelAnimationFrame(requestId);
-  };
-
   document.body.addEventListener(`screenChanged`, () => {
     const isGameScreenActive = gameScreen.classList.contains(`active`);
 
     if (isGameScreenActive) {
-      startAnimation();
+      animate(draw, MAX_SESSION_TIME_MS);
     } else {
-      resetAnimation(requestId);
+      cancelAnimationFrame(requestId);
       requestId = null;
     }
   });
