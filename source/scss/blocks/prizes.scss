@@ -342,6 +342,30 @@
       opacity: 0;
     }
   }
+
+  &--journeys {
+    .prizes__desc {
+      b {
+        width: 1ch;
+      }
+    }
+  }
+
+  &--cases {
+    .prizes__desc {
+      b {
+        width: 1ch;
+      }
+    }
+  }
+
+  &--codes {
+    .prizes__desc {
+      b {
+        width: 3ch;
+      }
+    }
+  }
 }
 
 .prizes__item.active {
