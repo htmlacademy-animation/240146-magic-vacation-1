@@ -1,3 +1,7 @@
+const prizesItemJourneys = document.querySelector(`.prizes__item--journeys`);
+const prizesItemCases = document.querySelector(`.prizes__item--cases`);
+const prizesItemCodes = document.querySelector(`.prizes__item--codes`);
+
 const primaryAwardImg = document.querySelector(`.prizes__item-primary-svg`);
 const primaryAwardSvgPath = `img/primary-award.svg`;
 
@@ -11,13 +15,16 @@ let isAnimationActive = false;
 
 export const runPrizesAnimations = () => {
   if (!isAnimationActive) {
+    prizesItemJourneys.classList.add(`active`);
     primaryAwardImg.src = `${primaryAwardSvgPath}?${Math.random()}`;
 
     setTimeout(() => {
+      prizesItemCases.classList.add(`active`);
       secondaryAwardImg.src = `${secondaryAwardSvgPath}?${Math.random()}`;
     }, 3900);
 
     setTimeout(() => {
+      prizesItemCodes.classList.add(`active`);
       additionalAwardImg.src = `${additionalAwardSvgPath}?${Math.random()}`;
     }, 5900);
 
