@@ -12,4 +12,3 @@ export const animateProgress = (render, duration) => new Promise((resolve) => {
     }
   }());
 });
-
