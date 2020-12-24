@@ -1,59 +1,51 @@
+const minutesSpan = document.querySelector(`.game__counter-minutes`);
+const secondsSpan = document.querySelector(`.game__counter-seconds`);
+
 const MAX_SESSION_TIME_MS = 5 * 60 * 1000; // 5 MINUTES
+let requestId = null;
 
-export default () => {
-  const gameScreen = document.querySelector(`.screen--game`);
-  const minutesSpan = document.querySelector(`.game__counter-minutes`);
-  const secondsSpan = document.querySelector(`.game__counter-seconds`);
+const formatTime = (time) => {
+  return time < 10 ? `0${time}` : time;
+};
 
-  let requestId = null;
+const animate = (draw, duration) => {
+  const start = Date.now();
 
-  const formatTime = (time) => {
-    return time < 10 ? `0${time}` : time;
-  };
+  requestAnimationFrame(function startAnimation() {
+    const now = Date.now();
+    let elapsed = now - start;
 
-  const animate = (draw, duration) => {
-    const start = Date.now();
+    if (elapsed > duration) {
+      elapsed = duration;
+    }
 
-    requestAnimationFrame(function startAnimation() {
-      const now = Date.now();
-      let elapsed = now - start;
+    draw(duration - elapsed);
 
-      if (elapsed > duration) {
-        elapsed = duration;
-      }
-
-      draw(duration - elapsed);
-
-      if (elapsed < duration) {
-        requestId = requestAnimationFrame(startAnimation);
-      }
-    });
-  };
-
-  const draw = (progress) => {
-    const time = new Date(Math.floor(progress));
-    let minutes = formatTime(time.getMinutes());
-    let seconds = formatTime(time.getSeconds());
-
-    minutesSpan.textContent = minutes;
-    secondsSpan.textContent = seconds;
-  };
-
-  const startAnimation = (duration = MAX_SESSION_TIME_MS) => {
-    animate(draw, duration);
-  };
-  const resetAnimation = () => {
-    cancelAnimationFrame(requestId);
-  };
-
-  document.body.addEventListener(`screenChanged`, () => {
-    const isGameScreenActive = gameScreen.classList.contains(`active`);
-
-    if (isGameScreenActive) {
-      startAnimation();
-    } else {
-      resetAnimation(requestId);
-      requestId = null;
+    if (elapsed < duration) {
+      requestId = requestAnimationFrame(startAnimation);
     }
   });
+};
+
+const draw = (progress) => {
+  const time = new Date(Math.floor(progress));
+  let minutes = formatTime(time.getMinutes());
+  let seconds = formatTime(time.getSeconds());
+
+  minutesSpan.textContent = minutes;
+  secondsSpan.textContent = seconds;
+};
+
+export const runGameAnimation = () => {
+  animate(draw, MAX_SESSION_TIME_MS);
+};
+
+export const destroyGameAnimation = () => {
+  if (requestId) {
+    cancelAnimationFrame(requestId);
+    requestId = null;
+  }
+};
+
+export default () => {
 };

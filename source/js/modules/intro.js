@@ -1,32 +1,35 @@
 import AccentTypographyBuild from './accentTypography';
 
-export default () => {
-  const introScreen = document.querySelector(`.screen--intro`);
+let isAnimationActive = false;
+let introTitleAnimation = null;
+let introDateAnimation = null;
 
-  const introTitleAnimation = new AccentTypographyBuild(`.intro__title`,
+export const runIntroAnimations = () => {
+  isAnimationActive = true;
+  setTimeout(() => {
+    introTitleAnimation.runAnimation();
+    introDateAnimation.runAnimation();
+  }, 250);
+};
+
+export const destroyIntroAnimations = () => {
+  if (isAnimationActive) {
+    introTitleAnimation.destroyAnimation();
+    introDateAnimation.destroyAnimation();
+    isAnimationActive = false;
+  }
+};
+
+export default () => {
+  introTitleAnimation = new AccentTypographyBuild(`.intro__title`,
       500,
       600,
       `active`,
       `transform`);
 
-  const introDateAnimation = new AccentTypographyBuild(`.intro__date`,
+  introDateAnimation = new AccentTypographyBuild(`.intro__date`,
       500,
       800,
       `active`,
       `transform`);
-
-  document.body.addEventListener(`screenChanged`, () => {
-    const introScreenActive = introScreen.classList.contains(`active`);
-
-    if (introScreenActive) {
-      setTimeout(() => {
-        introTitleAnimation.runAnimation();
-        introDateAnimation.runAnimation();
-      }, 250);
-    } else {
-      introTitleAnimation.destroyAnimation();
-      introDateAnimation.destroyAnimation();
-    }
-  });
-
 };

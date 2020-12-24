@@ -330,3 +330,56 @@
     }
   }
 }
+
+.prizes__item  {
+  .prizes__desc {
+    b {
+      visibility: hidden;
+    }
+
+    span {
+      transform: translateX(2rem);
+      opacity: 0;
+    }
+  }
+
+  &--journeys {
+    .prizes__desc {
+      b {
+        width: 1ch;
+      }
+    }
+  }
+
+  &--cases {
+    .prizes__desc {
+      b {
+        width: 1ch;
+      }
+    }
+  }
+
+  &--codes {
+    .prizes__desc {
+      b {
+        width: 3ch;
+      }
+    }
+  }
+}
+
+.prizes__item.active {
+  .prizes__desc {
+    b {
+      visibility: visible;
+    }
+
+    span {
+      transform: translateX(0);
+      opacity: 1;
+      transition-property: opacity, transform;
+      transition-duration: 1000ms, 500ms;
+      transition-timing-function: ease-out;
+    }
+  }
+}
